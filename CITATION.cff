@@ -6,10 +6,10 @@ authors:
   affiliation: Karlsruhe Institute of Technology
   email: andreas.pfeil@kit.edu
   orcid: "https://orcid.org/0000-0001-6575-1022"
-title: "FAIR Digital Object Ecosystem Testbed"
+title: "FAIR Digital Object Lab"
 type: software
-abstract: The testbed is an easy to use, dockerized and freely configurable FAIR DO infrastructure. The goal is to demonstrate the principles, to detect gaps and problems in specifications and finally to be a production-ready template.
+abstract: The FAIR DO Lab Software Stack is an extendable and adjustable architecture for generic FAIR Digital Object (FAIR DO) tasks. It consists of a set of interacting components with services and tools for creation, validation, discovery, curation, and more.
 date-released: 2020-10-01
-url: "https://github.com/kit-data-manager/testbed4inf"
-repository-code: "https://github.com/kit-data-manager/testbed4inf"
+url: "https://github.com/kit-data-manager/FAIR-DO-Lab"
+repository-code: "https://github.com/kit-data-manager/FAIR-DO-Lab"
 license: Apache-2.0
