@@ -42,16 +42,33 @@ _"external development": These services are reused open-source components, not d
 
 ## Getting Started
 
-> IMPORTANT: Before you start, make sure your docker environment has at least 4GB of memory (RAM) available. This is especially required if it runs in a virtual machine (which is the case e.g. if you use Apples macOS). You can do this the easiest using Docker Desktop in the preference menu under "Resources". The FAIR DO Lab consists of several services, and in sum the default of 2GB RAM will not be enough.
+
+You will need:
+
+- `Git` to clone this repo. Alternatively, [download it as a zip file](https://github.com/kit-data-manager/FAIR-DO-Lab/archive/refs/heads/master.zip) to skip this requirement.
+- `Docker Desktop` (Installation on [Windows](https://www.docker.com/products/docker-desktop/), [Linux](https://docs.docker.com/desktop/install/linux-install/), [macOS](https://docs.docker.com/desktop/install/mac-install/), [macOS on ARM](https://docs.docker.com/desktop/mac/apple-silicon/)).
+    > **Note**
+    > 
+    > Before you start, make sure your docker environment has at least 4 GB of memory (RAM) available. This is especially required if it runs in a virtual machine (which is the case e.g., if you use Apples macOS). You can do this the easiest using Docker Desktop in the preference menu under "Resources". The FAIR DO Lab consists of several services, and in sum the default of 2 GB RAM will not be enough.
+    
+    > **Note**
+    > 
+    > If the `docker compose` command (preferred) is not available, you can use `docker-compose` (note the "-") as a fallback. This may be the case on older systems, for example.
+
+All other requirements will be available through the docker setup.
+
+Using the command line, the Lab can be started like this:
 
 ```bash
-# install docker first.
-git clone $THIS_REPOSITORY_URL
+# Skip this command if you download the zip file instead
+git clone https://github.com/kit-data-manager/FAIR-DO-Lab.git
 cd fair-do-lab
-docker compose up  # start all services defined in docker-compose.yml
+# start all services defined in docker-compose.yml
+docker compose up
+# use `docker-compose up` (note the dash), if "docker compose" (preferred) is not available.
 ```
 
-Wait until the containers started. After that, you may expore the possibilities of the FAIR DO Lab using the following URLs:
+Wait until the containers started. After that, you may explore the possibilities of the FAIR DO Lab using the following URLs:
 
 - [PIT-Service API Documentation: http://localhost:8090/swagger-ui.html](http://localhost:8090/swagger-ui.html)
     - Use this API to manage PID records. You can find [details about the PIT-Service here](https://github.com/kit-data-manager/pit-service).
