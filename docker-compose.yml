@@ -43,6 +43,7 @@ services:
     image: elasticsearch:7.8.1
     environment:
       - discovery.type=single-node
+      - logger.org.elasticsearch=ERROR
     ports:
       - "9200:9200"
       - "9300:9300"
