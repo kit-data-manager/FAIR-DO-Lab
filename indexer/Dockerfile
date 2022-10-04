@@ -1,4 +1,4 @@
-FROM openjdk:11-buster AS build-env-java
+FROM eclipse-temurin:11 AS build-env-java
 LABEL maintainer="pfeil@kit.edu"
 LABEL stage=build-env
 RUN apt-get update && \
@@ -20,7 +20,7 @@ RUN cd /kitdm20/ && \
 
 
 # Clean image
-FROM openjdk:11-buster as run-indexer
+FROM eclipse-temurin:11 as run-indexer
 LABEL maintainer="pfeil@kit.edu"
 LABEL stage=run
 RUN mkdir -p /kitdm20/config
