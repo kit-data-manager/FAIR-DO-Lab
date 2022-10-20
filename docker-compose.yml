@@ -1,6 +1,12 @@
 version: '3'
 services:
 
+  fairdoscope:
+    build:
+      context: ./fairdoscope
+    ports:
+      - "8081:80"
+
   collectionapi:
     image: kitdm/collection-api
     ports:

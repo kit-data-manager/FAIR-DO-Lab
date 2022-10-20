@@ -11,7 +11,7 @@ Current high-level functionality roadmap:
 - [x] Search within PID records (status: prototype)
 - [x] Notification of PID activities for other services (status: done)
 - [x] Includes an instance of our collection registry to create and manage collections (status: done)
-- [ ] browse FAIR DOs (status: integration ongoing)
+- [x] browse FAIR DOs (status: done)
 - [ ] curate FAIR DOs (status: planning phase)
 
 Related Publications:
@@ -28,7 +28,7 @@ Related Publications:
 
 | component | status |
 |-----------|--------|
-| FAIRDOscope (a FAIR DO Browser) | coming soon |
+| FAIRDOscope (a FAIR DO Browser) | production-ready |
 | Fairris | deprecated (demo interface) |
 | Typed PID Maker | production-ready, 1.0 release soon |
 | Indexer | prototype |
@@ -70,6 +70,9 @@ docker compose up
 
 Wait until the containers started. After that, you may explore the possibilities of the FAIR DO Lab using the following URLs:
 
+- [FAIRDOscope](http://localhost:8081/)
+    - To browse real FAIR DOs in a graphical and human readable way.
+    - The FAIRDOscope does currently not support sandboxed PIDs.
 - [PIT-Service API Documentation: http://localhost:8090/swagger-ui.html](http://localhost:8090/swagger-ui.html)
     - Use this API to manage PID records. You can find [details about the PIT-Service here](https://github.com/kit-data-manager/pit-service).
 - [Message Broker Management UI](http://localhost:15672/#/)
