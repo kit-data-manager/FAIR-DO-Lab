@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17 AS build-env-java
+FROM eclipse-temurin:19 AS build-env-java
 LABEL maintainer="pfeil@kit.edu"
 LABEL stage=build-env
 RUN apt-get update && \
@@ -19,7 +19,7 @@ RUN cd /kitdm20/ && \
 
 
 # Create a clean, minimal image
-FROM eclipse-temurin:17 as run-pit
+FROM eclipse-temurin:19 as run-pit
 LABEL maintainer="pfeil@kit.edu"
 LABEL stage=run
 RUN mkdir -p /kitdm20/config
