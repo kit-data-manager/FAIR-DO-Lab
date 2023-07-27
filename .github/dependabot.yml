@@ -10,10 +10,6 @@ updates:
     schedule:
       interval: "weekly"
   - package-ecosystem: "docker"
-    directory: "/indexer"
-    schedule:
-      interval: "weekly"
-  - package-ecosystem: "docker"
     directory: "/pit-service"
     schedule:
       interval: "weekly"

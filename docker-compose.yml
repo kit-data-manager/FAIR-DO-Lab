@@ -12,14 +12,6 @@ services:
     ports:
       - "8091:8080"
 
-  indexer:
-    build:
-      context: .
-      dockerfile: ./indexer/Dockerfile
-    container_name: indexer
-    depends_on:
-      - messagebroker
-
   pit-service:
     build:
       context: . # without this context, the dockerfile can not access the java-release-run.sh and similar files.
@@ -29,14 +21,6 @@ services:
       - "8090:8080"
     depends_on:
       - messagebroker
-  
-  fairris:
-    build:
-      context: . # without this context, the dockerfile can not access the java-release-run.sh and similar files.
-      dockerfile: ./fairris/Dockerfile
-    container_name: fairris
-    ports: 
-      - "8080:80"
 
   messagebroker:
     image: rabbitmq:3-management-alpine
