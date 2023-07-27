@@ -8,7 +8,7 @@ RUN apt-get update && \
     mkdir -p /kitdm20/
 
 
-FROM build-env-java as build-pit
+FROM build-env-java AS build-pit
 LABEL maintainer="pfeil@kit.edu"
 LABEL stage=build-contains-credentials
 RUN cd /kitdm20/ && \
@@ -19,7 +19,7 @@ RUN cd /kitdm20/ && \
 
 
 # Create a clean, minimal image
-FROM eclipse-temurin:17 as run-pit
+FROM eclipse-temurin:17 AS run-pit
 LABEL maintainer="pfeil@kit.edu"
 LABEL stage=run
 RUN mkdir -p /kitdm20/config
