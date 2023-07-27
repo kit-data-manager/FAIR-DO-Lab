@@ -2,43 +2,57 @@ version: '3'
 services:
 
   fairdoscope:
+    container_name: fairdoscope
     build:
       context: ./fairdoscope
     ports:
       - "8081:80"
 
   collectionapi:
+    container_name: collectionapi
     image: kitdm/collection-api
     ports:
       - "8091:8080"
 
   pit-service:
+    container_name: pit-service
     build:
       context: . # without this context, the dockerfile can not access the java-release-run.sh and similar files.
       dockerfile: ./pit-service/Dockerfile
-    container_name: pit-service
     ports: 
       - "8090:8080"
     depends_on:
-      - messagebroker
+      messagebroker:
+        condition: service_started
+      elasticsearch:
+        condition: service_healthy
 
   messagebroker:
-    image: rabbitmq:3-management-alpine
     container_name: messagebroker
+    image: rabbitmq:3-management-alpine
     ports:
       - "5672:5672"
       - "15672:15672"
 
   elasticsearch:
-    image: elasticsearch:7.8.1
+    container_name: elasticsearch
+    image: elasticsearch:7.9.3
     environment:
       - discovery.type=single-node
-      - logger.org.elasticsearch=ERROR
     ports:
       - "9200:9200"
       - "9300:9300"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9200"]
+      interval: 5s
+      timeout: 2s
+      retries: 3
+      start_period: 10s
 
   kibana:
-    image: kibana:7.8.1
+    container_name: kibana
+    image: kibana:7.9.3
     ports:
       - "5601:5601"
+    depends_on:
+      - elasticsearch
