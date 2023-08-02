@@ -36,9 +36,10 @@ services:
 
   elasticsearch:
     container_name: elasticsearch
-    image: elasticsearch:7.9.3
+    image: elasticsearch:8.8.1
     environment:
       - discovery.type=single-node
+      - xpack.security.enabled=false
     ports:
       - "9200:9200"
       - "9300:9300"
@@ -46,12 +47,12 @@ services:
       test: ["CMD", "curl", "-f", "http://localhost:9200"]
       interval: 5s
       timeout: 2s
-      retries: 3
-      start_period: 10s
+      retries: 10
+      start_period: 40s
 
   kibana:
     container_name: kibana
-    image: kibana:7.9.3
+    image: kibana:8.8.1
     ports:
       - "5601:5601"
     depends_on:
