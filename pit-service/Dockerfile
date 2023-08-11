@@ -14,7 +14,7 @@ LABEL stage=build-contains-credentials
 RUN cd /kitdm20/ && \
     git clone -v https://github.com/kit-data-manager/pit-service.git --branch master service && \
     cd service && \
-    ./gradlew build --stacktrace && \
+    ./gradlew build --stacktrace -x test -x javadoc && \
     cp build/libs/TypedPIDMaker*.jar ../
 
 
@@ -25,6 +25,6 @@ LABEL stage=run
 RUN mkdir -p /kitdm20/config
 COPY java-release-run.sh /kitdm20/
 COPY --from=build-pit /kitdm20/TypedPIDMaker*.jar /kitdm20/TypedPIDMaker.jar
-COPY pit-service/conf/ /kitdm20/config/
+COPY pit-service/config/ /kitdm20/config/
 EXPOSE 8080
 CMD bash /kitdm20/java-release-run.sh TypedPIDMaker.jar
