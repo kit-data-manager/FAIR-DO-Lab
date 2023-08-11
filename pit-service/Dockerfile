@@ -25,6 +25,6 @@ LABEL stage=run
 RUN mkdir -p /kitdm20/config
 COPY java-release-run.sh /kitdm20/
 COPY --from=build-pit /kitdm20/TypedPIDMaker*.jar /kitdm20/TypedPIDMaker.jar
-COPY pit-service/conf/* /kitdm20/config/
+COPY pit-service/conf/ /kitdm20/config/
 EXPOSE 8080
 CMD bash /kitdm20/java-release-run.sh TypedPIDMaker.jar
