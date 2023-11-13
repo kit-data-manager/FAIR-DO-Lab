@@ -5,14 +5,15 @@ RUN apt-get update && \
     apt-get upgrade --assume-yes && \
     apt-get install --no-install-recommends --assume-yes git && \
     mkdir -p /var/repository && \
-    mkdir -p /kitdm20/
+    mkdir -p /kitdm20/ \
+    && apt-get clean
 
 
 FROM build-env-java AS build-pit
 LABEL maintainer="pfeil@kit.edu"
 LABEL stage=build-contains-credentials
-RUN cd /kitdm20/ && \
-    git clone -v https://github.com/kit-data-manager/pit-service.git --branch master service && \
+WORKDIR /kitdm20
+RUN git clone -v https://github.com/kit-data-manager/pit-service.git --branch dev-v2 service && \
     cd service && \
     ./gradlew build --stacktrace -x test -x javadoc && \
     cp build/libs/TypedPIDMaker*.jar ../
