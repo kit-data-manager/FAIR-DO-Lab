@@ -8,7 +8,7 @@ The FAIR DO Lab Software Stack is an extendable and adjustable architecture for 
 Current high-level functionality roadmap:
 
 - [x] Create, update, retrieve and validate FAIR DOs (status: done)
-- [x] Search within PID records (status: prototype)
+- [x] Search within PID records (status: done)
 - [x] Notification of PID activities for other services (status: done)
 - [x] Includes an instance of our collection registry to create and manage collections (status: done)
 - [x] browse FAIR DOs (status: done)
@@ -29,9 +29,7 @@ Related Publications:
 | component | status |
 |-----------|--------|
 | FAIRDOscope (a FAIR DO Browser) | production-ready |
-| Fairris | deprecated (demo interface) |
 | Typed PID Maker | production-ready, 1.0 release soon |
-| Indexer | prototype |
 | Messaging of FAIR DO activities | production-ready |
 | Collection Registry | production-ready |
 | Elasticsearch (search index) | production-ready, external development |
@@ -76,7 +74,7 @@ Wait until the containers started. After that, you may explore the possibilities
 - [PIT-Service API Documentation: http://localhost:8090/swagger-ui.html](http://localhost:8090/swagger-ui.html)
     - Use this API to manage PID records. You can find [details about the PIT-Service here](https://github.com/kit-data-manager/pit-service).
 - [Message Broker Management UI](http://localhost:15672/#/)
-    - The message broker will receive messages from the PIT service when records are created or updated. The broker will persist those messages in the queues of interested (registered) clients. In the FAIR DO Lab is currently only one such client: The indexer, which will receive the messages, resolve the record and finally ingest all information into the seach index. This interface will let you watch into internal statistics and the internal state of the broker.
+    - The message broker will receive messages from the PIT service when records are created or updated. The broker will persist those messages in the queues of interested (registered) clients.
 - [Search Index Management UI: http://localhost:5601/app/kibana](http://localhost:5601/app/kibana)
     - Use this interface to create a view on the record index and create queries. There are also APIs available directly to the elasticsearch index, which enables developers to create different kinds of search experiences.
 - [Collection Service API Documentation: http://localhost:8091/swagger-ui.html](http://localhost:8091/swagger-ui.html)
