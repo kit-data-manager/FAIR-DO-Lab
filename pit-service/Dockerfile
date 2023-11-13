@@ -13,7 +13,7 @@ FROM build-env-java AS build-pit
 LABEL maintainer="pfeil@kit.edu"
 LABEL stage=build-contains-credentials
 WORKDIR /kitdm20
-RUN git clone -v https://github.com/kit-data-manager/pit-service.git --branch dev-v2 service && \
+RUN git clone -v https://github.com/kit-data-manager/pit-service.git --branch master service && \
     cd service && \
     ./gradlew build --stacktrace -x test -x javadoc && \
     cp build/libs/TypedPIDMaker*.jar ../
