@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17 AS build-env-java
+FROM eclipse-temurin:21 AS build-env-java
 LABEL maintainer="pfeil@kit.edu"
 LABEL stage=build-env
 RUN apt-get update && \
@@ -20,7 +20,7 @@ RUN git clone -v https://github.com/kit-data-manager/pit-service.git --branch ma
 
 
 # Create a clean, minimal image
-FROM eclipse-temurin:17 AS run-pit
+FROM eclipse-temurin:21 AS run-pit
 LABEL maintainer="pfeil@kit.edu"
 LABEL stage=run
 RUN mkdir -p /kitdm20/config
