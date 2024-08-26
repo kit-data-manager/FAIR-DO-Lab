@@ -29,7 +29,7 @@ Related Publications:
 | component | status |
 |-----------|--------|
 | FAIRDOscope (a FAIR DO Browser) | production-ready |
-| Typed PID Maker | production-ready, 1.0 release soon |
+| Typed PID Maker | production-ready |
 | Messaging of FAIR DO activities | production-ready |
 | Collection Registry | production-ready |
 | Elasticsearch (search index) | production-ready, external development |
