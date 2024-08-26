@@ -3,5 +3,10 @@ tmp
 data
 bin
 
+# potantial security risks
+*.bin
+*.pem
+*prefix_data
+
 # OS specific things
 .DS_Store
