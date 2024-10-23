@@ -16,11 +16,16 @@ services:
 
   pit-service:
     container_name: pit-service
-    build:
-      context: . # without this context, the dockerfile can not access the java-release-run.sh and similar files.
-      dockerfile: ./pit-service/Dockerfile
-    ports: 
-      - "8090:8080"
+    image: ghcr.io/kit-data-manager/typed-pid-maker:latest
+    volumes:
+      - "./pit-service/config:/app/config:ro"
+      - "./pit-service/data:/data"
+    #command: ["bootstrap", "all-pids-from-prefix"]
+    #build:
+    #  context: . # without this context, the dockerfile can not access the java-release-run.sh and similar files.
+    #  dockerfile: ./pit-service/Dockerfile
+    ports:
+      - "8090:8090"
     depends_on:
       messagebroker:
         condition: service_started
@@ -47,8 +52,8 @@ services:
       test: ["CMD", "curl", "-f", "http://localhost:9200"]
       interval: 5s
       timeout: 2s
-      retries: 10
-      start_period: 40s
+      retries: 40
+      start_period: 70s
 
   kibana:
     container_name: kibana
