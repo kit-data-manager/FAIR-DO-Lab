@@ -9,3 +9,5 @@ Content-Type: application/json
   },
   "_source": ["pid"]
 }
+
+HTTP 200
